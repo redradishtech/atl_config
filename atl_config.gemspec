@@ -19,12 +19,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   spec.has_rdoc      = 'yard'
-  spec.required_ruby_version = '>= 2.3.0'
+  spec.required_ruby_version = '~> 2.3'
 
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency "minitest-reporters"
+  spec.add_development_dependency "minitest-reporters", "~> 1.1"
 # https://www.smashingmagazine.com/2014/04/how-to-build-a-ruby-gem-with-bundler-test-driven-development-travis-ci-and-coveralls-oh-my/
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-minitest"
@@ -32,6 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "yard"
 
-  spec.add_runtime_dependency "parslet"
-  spec.add_runtime_dependency "nokogiri"
+  spec.add_runtime_dependency "parslet", "~> 1.7"
+  spec.add_runtime_dependency "nokogiri", "~> 1.6"
 end
