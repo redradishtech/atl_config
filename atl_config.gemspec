@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jeff@redradishtech.com"]
 
   spec.summary       = %q{Code for parsing config files for Atlassian products}
-  spec.description   = %q{Handles server.xml, confluence.cfg.xml and dbconfig.xml}
+  spec.description   = %q{Given an Atlassian JIRA or Confluence install, figures out the database details from config files.}
   spec.homepage      = nil
   spec.license       = "MIT"
 
