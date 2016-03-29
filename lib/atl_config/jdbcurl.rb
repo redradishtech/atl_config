@@ -1,6 +1,4 @@
 require 'parslet'
-require 'pry'
-require 'pry-byebug'
 
 module AtlConfig
 	# Parses a JDBC URL in MySQL or Postgres formats.
