@@ -12,8 +12,11 @@ module AtlConfig
 				base = config.xpath("/confluence-configuration/properties")
 				r.user = base.xpath("property[@name='hibernate.connection.username']/text()").first&.to_s
 				r.password = base.xpath("property[@name='hibernate.connection.password']/text()").first&.to_s
-				url = base.xpath("property[@name='hibernate.connection.url']/text()").first&.to_s
-				urlparts = AtlConfig::JDBCURL.parse(url)
+				# jdbcurl is the URL in Java/JDBC format. dburl is the URL in Ruby format
+				r.jdbcurl = base.xpath("property[@name='hibernate.connection.url']/text()").first&.to_s
+				# FIXME: it's probably more complex than this..
+				r.dburl = r.jdbcurl.gsub("jdbc:postgresql", "postgres")
+				urlparts = AtlConfig::JDBCURL.parse(r.jdbcurl)
 				r.dbtype = urlparts[:dbtype]
 				r.host = urlparts[:host]
 				r.port = if urlparts[:port] then urlparts[:port].to_i

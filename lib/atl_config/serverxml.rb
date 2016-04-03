@@ -14,9 +14,10 @@ module AtlConfig
 				r = DBInfo.new
 				r.user = datasource.xpath("@username")&.to_s
 				r.password = datasource.xpath("@password")&.to_s
-				url = datasource.xpath("@url")&.to_s
-				if url then
-					urlparts = AtlConfig::JDBCURL.parse(url)
+				r.jdbcurl = datasource.xpath("@url")&.to_s
+				r.dburl = r.jdbcurl.gsub("jdbc:postgresql", "postgres")
+				if r.jdbcurl then
+					urlparts = AtlConfig::JDBCURL.parse(r.jdbcurl)
 					r.dbtype = urlparts[:dbtype]
 					r.host = urlparts[:host]
 					r.port = if urlparts[:port] then urlparts[:port].to_i

@@ -7,5 +7,5 @@ require "atl_config/appinfo"
 
 module AtlConfig
 	# Struct containing database connection info.
-	DBInfo = Struct.new :datasource, :user, :password, :dbtype, :host, :port, :database
+	DBInfo = Struct.new :datasource, :user, :password, :dbtype, :host, :port, :database, :jdbcurl, :dburl
 end

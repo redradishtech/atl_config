@@ -8,6 +8,8 @@ class ConfluenceCfgTest < Minitest::Test
 		assert_equal("redradish_confluence", cfg.password)
 		assert_equal("localhost", cfg.host)
 		assert_equal("redradish_confluence", cfg.database)
+		assert_equal("jdbc:postgresql://localhost:5432/redradish_confluence", cfg.jdbcurl)
+		assert_equal("postgres://localhost:5432/redradish_confluence", cfg.dburl)
 		assert_nil(cfg.datasource)
 	end
 
@@ -19,6 +21,8 @@ class ConfluenceCfgTest < Minitest::Test
 		assert_nil(cfg.password)
 		assert_nil(cfg.host)
 		assert_nil(cfg.database)
+		assert_nil(cfg.jdbcurl)
+		assert_nil(cfg.dburl)
 
 	end
 end

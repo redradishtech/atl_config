@@ -24,6 +24,8 @@ class ServerXMLTest < Minitest::Test
 		assert_equal("redradish_confluence", ds.password)
 		assert_equal("redradish_confluence", ds.database)
 		assert_equal("localhost", ds.host)
+		assert_equal("jdbc:postgresql://localhost/redradish_confluence", ds.jdbcurl)
+		assert_equal("postgres://localhost/redradish_confluence", ds.dburl)
 
 		ds = AtlConfig::ServerXML.dbinfo(@serverxml, "jdbc/PluginStats")
 		assert_equal("redradish_confluence", ds.user)
@@ -31,6 +33,7 @@ class ServerXMLTest < Minitest::Test
 		assert_equal("redradish_confluence", ds.user)
 		assert_equal("redradish_confluence", ds.password)
 		assert_equal("pluginstats", ds.database)
-		assert_equal("localhost", ds.host)
+		assert_equal("jdbc:postgresql://localhost/pluginstats", ds.jdbcurl)
+		assert_equal("postgres://localhost/pluginstats", ds.dburl)
 	end
 end
