@@ -27,7 +27,7 @@ module AtlConfig
 						when 'mysql'
 							3306
 						else
-							raise "Unhandled db type #{dbtype}"
+							raise "Unhandled db type #{r.dbtype}"
 						end
 					end
 				r.database = urlparts[:database]

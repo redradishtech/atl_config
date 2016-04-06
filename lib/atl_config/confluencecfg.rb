@@ -21,13 +21,13 @@ module AtlConfig
 				r.host = urlparts[:host]
 				r.port = if urlparts[:port] then urlparts[:port].to_i
 					else
-						case @dbtype
+						case r.dbtype
 						when 'postgresql'
 							5432
 						when 'mysql'
 							3306
 						else
-							raise "Unhandled db type #{dbtype}"
+							raise "Unhandled db type #{r.dbtype}"
 						end
 					end
 				r.database = urlparts[:database]
